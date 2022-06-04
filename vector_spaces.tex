@@ -1,0 +1,140 @@
+\section{Vector Spaces}
+
+\paragraph{Motivation for Vector Spaces}
+Vector spaces are a natural and important generalisation of 
+\(\mathbb{R}^n\). It is natural to consider them whenever
+it is possible to add objects and multiply them by scalars.
+
+It may be convenient to consider a field \(\mathbb{F}\) as a vector
+space over one of its subfields.
+
+\paragraph{Definition of Vector Spaces}
+Let \(\mathbb{F}\) be a field.
+Then, a vector space over a field \(\mathbb{F}\) consists of an abelian
+group \((V, +)\) and, a function from \(\mathbb{F}\times V \to V\) called
+scalar multiplication and written as \(\alpha V\) where the following
+properties hold.
+\begin{enumerate}
+    \item \textbf{Associativity over scalar multiplication:}
+    \(\alpha (\beta v) = (\alpha\beta)v\)
+    for all \(v\in V\), \(\alpha, \beta \in \mathbb{F}\)
+    \item \textbf{Existence of 1:} \(1v = v\) for all \(v\in V\)
+    \item \textbf{Distributivity of scalar multiplication over addition:}
+    \(\alpha(u + v) = \alpha u + \alpha v\)
+    for all \(u, v \in V, \alpha \in \mathbb{F}\)
+    \item \textbf{Distributivity of addition over scalar multiplication:}
+    \((\alpha+\beta)u = \alpha u + \beta u\)
+\end{enumerate}
+
+
+
+\paragraph{Properties and Notation for Vector Spaces}
+\(\vec{dsdfa}\)
+\begin{enumerate}
+    \item Note that there are actually a total of ten axioms that exist.
+    There is the four mentioned above, closure under scalar multiplication
+    and, five that are inherited from the abelian group.
+    \item Addition in \(V\) is called \textit{vector addition}
+    to separate it from addition in \(\mathbb{F}\).
+    \item \(V\) cannot be empty since it is a group.
+    \item Bold face letters \(\vx, \vy, \vz\) may be used instead of \(x, y, z\),
+    to denote vectors. More specifically, the identify of \((V, +)\)
+    is denoted at \(\zero\) rather than the \( 0 \)
+    that denotes a scalar in \(\mathbb{F}\).
+    \item All the results from chapter 1 such as uniqueness of zero,
+    negatives cancellation, \dots all apply for vector addition.
+\end{enumerate}
+
+\paragraph{Results on Combining Vectors Addition and Scalar}
+Let \(V\) be a vector space over a field \(\mathbb{F}\).
+Then for all \(\vu, \vv,\vw \in V\) and \(\lambda \in \mathbb{F}\),
+\begin{enumerate}
+    \item \(0 v = \zero \) and \(\lambda \zero = \zero\),
+    \item \((-1)\vv = -\vv\),
+    \item \(\lambda\vv = \zero \) implies either,
+    \(\lambda = 0\) or \(\vv = 0\)
+    \item If \(\lambda\vv = \lambda\vw\) where \(\lambda\neq 0\),
+    then, \(\vv = \vw\).
+\end{enumerate}
+
+\subsection{Standard Examples of Vector Spaces}
+
+\paragraph{The space \(\mathbb{F}^n\) over \(\mathbb{F}\)}
+The set \(\mathbb{F}^n\) contains all \(n\)-tuples of elements of
+\(\mathbb{F}\).
+That is,
+\[
+    \mathbb{F}^n =
+    \left\{ 
+        \begin{pmatrix}
+            \alpha_1 \\ \vdots \\ \alpha_n
+        \end{pmatrix}
+    \right\}
+    :
+    \alpha_i \in \mathbb{F}
+\]
+
+Let \(\vx = (\alpha_i)_{1\leq i \leq n}\)
+and \(\vy = (\beta_i)_{1\leq i \leq n}\) be elements of \(\mathbb{F}\).
+Then, vector addition is defined as
+\[
+        \vx + \vy = (\alpha_i + \beta_i)_{1\leq i \leq n}.
+\]
+
+Likewise, scalar multiplication on \(\mathbb{F}^n\) is defined as
+\[
+    \lambda\vx = (\lambda \vx_i)_{1 \leq i \leq n}.
+\]
+
+\paragraph{Geometric Vectors}
+Geometric vectors are ordered pairs of points in \(\mathbb{R}^n\)
+joined by label arrows. That is, they have direction and length.
+These may be added by placing head to tail where, scalar multiplication
+refers to increasing the length of the vector by a scalar value.
+
+These vectors however, do not form a vector space. To do so, we define two
+geometric vectors to be equivalent if one is a translation of the other.
+Then, the set of equivalence classes of geometric vectors is a vector space.
+That is, we do not care about the position of the geometric vector,
+only its magnitude and direction.
+
+\paragraph{Matrices}
+For positive integers \(p, q\) the set \(M_{p, q}(\mathbb{F})\)
+is the set of \(p\times q\) matrices with elements from \(F\).
+Then, \(M_{p, q}\) is a vector space over \(\mathbb{F}\)
+where vector addition and multiplication by a scalar are defined
+by adding each corresponding element or, multiplying each element
+by a the scalar.
+
+\paragraph{Polynomials}
+The set of all polynomials with coefficients in \(\mathbb{F}\)
+denoted by \(\mathcal{P}(\mathbb{F})\) is a vector space over
+\(\mathbb{F}\) with
+\begin{align*}
+    (f+g)(x) &= f(x) + g(x) && \text{ for all } x\in \mathbb{F}, \\
+    (\lambda f)(x) &= \lambda f(x) && \text{ for all } \lambda, x\in \mathbb{F}.
+\end{align*}
+
+We may denote \(\mathcal{P}(\mathbb{F})\) to be the set of all polynomials
+with degree \(n\) or less. This is also a vector space over \(\mathbb{F}\).
+
+\paragraph{Function Spaces}
+Let \(X\) be a non-empty set and \(\mathbb{F}\) be a field.
+Then,
+\[
+    \mathcal{F}[X] = \left\{ f : X\to \mathbb{F} \right\}
+\]
+where \(\mathcal{F}[X]\)is a vector space of \(F\) representing the
+set of all functions.
+We must define
+\begin{enumerate}
+    \item The zero to be the zero function \(x \to 0\) for all \(x\in X\)
+    \item \((f + g)(x) = f(x) + g(x)\) for all \(x\in X\)
+    \item \((\lambda f)(x) = \lambda(f(x))\) for all \(x\in X\)
+\end{enumerate}
+
+Note that here, we use \(\mathcal{F}\) to correspond with \(\mathbb{F}\).
+If we were however using \(\mathbb{R}\) as a field then, we may instead
+prefer to use \(\mathcal{R}\) for the set of all functions instead.
+Similarly, we extend this for \(\mathcal{Q}\) too.
+

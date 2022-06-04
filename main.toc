@@ -35,3 +35,14 @@
 \contentsline {paragraph}{Group Homomorphisms and General Linear Group}{6}{section*.31}%
 \contentsline {subparagraph}{Example of Group Homomorphisms on \(GL\)}{6}{section*.32}%
 \contentsline {paragraph}{Cayley's Theorem}{6}{section*.33}%
+\contentsline {section}{\numberline {2}Vector Spaces}{7}{section.2}%
+\contentsline {paragraph}{Motivation for Vector Spaces}{7}{section*.34}%
+\contentsline {paragraph}{Definition of Vector Spaces}{7}{section*.35}%
+\contentsline {paragraph}{Properties and Notation for Vector Spaces}{7}{section*.36}%
+\contentsline {paragraph}{Results on Combining Vectors Addition and Scalar}{7}{section*.37}%
+\contentsline {subsection}{\numberline {2.1}Standard Examples of Vector Spaces}{8}{subsection.2.1}%
+\contentsline {paragraph}{The space \(\mathbb {F}^n\) over \(\mathbb {F}\)}{8}{section*.38}%
+\contentsline {paragraph}{Geometric Vectors}{8}{section*.39}%
+\contentsline {paragraph}{Matrices}{8}{section*.40}%
+\contentsline {paragraph}{Polynomials}{8}{section*.41}%
+\contentsline {paragraph}{Function Spaces}{8}{section*.42}%
