@@ -220,3 +220,132 @@ There also exists \(SO(n) = O(n) \cap SL(n, \mathbb{R})\) which is the
 intersection of the orthogonal matrices and special matrices which is also
 a group.
 
+\paragraph{Subfields}
+Let \((\mathbb{F}, +, \times)\) be a field and
+\(\mathbb{E}\subseteq \mathbb{F}\) such that \(\mathbb{E}\) is also a
+field under the same operations.
+
+Then, \((\mathbb{E}, +, \times)\) is a subfield of \(\mathbb{F}\).
+Equivalently, \(\mathbb{E}\leq \mathbb{F}\).
+
+\paragraph{Subfield Lemma}
+Let \(\mathbb{E} \neq \{0\} \) be a non-empty subset of a field
+\(\mathbb{F}\).
+Then, \(\mathbb{E}\) is a subfield of \(\mathbb{F}\) if and only if,
+for all \(a, b \in \mathbb{E}\),
+
+\begin{enumerate}
+    \item \(a + b \in \mathbb{E}\),
+    \item \(- b \in \mathbb{E}\),
+    \item \(a\times b \in \mathbb{E}\),
+    \item \(b^{-1} \in \mathbb{E}\) given \(b \neq 0\).
+\end{enumerate}
+
+The distributive laws are inherited from \(\mathbb{F}\) and need no checking.
+The rest of the proof may follow from applications of the subgroup lemma
+to each operation \(\mathbb{E}, +\) and \(\mathbb{E}, \times\).
+
+\paragraph{Cool Rational + Irrational Alpha Field}
+Let \(\alpha\) be any non-rational real or complex number.
+We may define \( \mathbb{Q}(\alpha)\) to be the smallest field containing both
+\(\mathbb{Q}\) and \(\alpha\).
+
+The smallest such field is of the form \(\{
+    a + b\alpha : a, b \in \mathbb{Q}
+\}\).
+
+\subsection{Morphisms}
+Morphisms are the \textit{nice} maps between the members.
+
+\paragraph{Homomorphism Definition}
+Let \((G, *)\) and \((H, \circ)\) be two groups.
+A (group) homomorphism from \(G\) to \(H\) is a map
+\(\phi : G \to H\) that respects the two operations.
+
+That is, \[
+    \phi(a*b) = \phi(a) \circ \phi(b) \quad \forall a,b \in G
+\]
+
+\paragraph{Isomorphism}
+An isomorphism is a bijective homomorphism \(\phi : G\to H\).
+The groups are then isomorphic. That is, \(G \cong H\).
+
+In terms of group theory, if two groups are isomorphic then,
+they are effectively the same group. Isomorphism is an equivalence
+relation on groups.
+
+\paragraph{Isomorphism Lemmas}
+let \((G, *)\) and \((H, \circ)\) be two groups and \(\phi\) a homomorphism
+between them.
+Then,
+\begin{itemize}
+    \item \(\phi\) maps the identity of \(G\) to the \( G \) to the
+    identity of \(H\).
+    \item \(\phi\) maps the inverses to inverses. That is,
+    \(\phi(a^{-1}) = (\phi(a))^{-1}\), for all \(a \in G\).
+    \item if \(\phi\) is a isomorphism from \(G \to H\) then,
+    \(\phi^{-1}\) is an isomorphism from \(H \to G\).
+\end{itemize}
+
+\paragraph{Images and Kernel Definition}
+Let \(\phi: G\to H\) be a group homomorphism with, \(e'\) the identity
+of \(H\).
+
+The kernel of \(\phi\) is the set
+\[
+    \ker(\phi) = \{
+        g\in G : \phi(g) = e'
+    \}.
+\]
+Observer that \(\ker \phi \leq G\).
+
+The image of \(\phi\) is the set \[
+    \mathrm{im} (\phi) = \{
+        h\in H : h = \phi(g), \text{ some } g\in G
+    \}.
+\]
+
+Note that \(\mathrm{im}\phi \leq G\).
+
+\paragraph{One-to-One Homomorphisms}
+A homomorphism is one-to-one if and only if \(\ker \theta = \{e\}\),
+where \(e\) is the identity of \(G\).
+
+If \(\phi\) is one-to-one then, \(\textrm{im}(\phi)\) is isomorphic to
+\(G\).
+
+\paragraph{Group Homomorphisms and General Linear Group}
+It is common to seek a homomorphism
+\(\phi: G \to GL(n, \mathbb{F})\) for some \(n\) and field \(\mathbb{F}\).
+
+If \(\phi\) is one to one (each element maps to a unique matrix), then
+the representation is faithful.
+
+\subparagraph{Example of Group Homomorphisms on \(GL\)}
+Consider \(C_4 = \{e, a, a^2, a^3\}\) (\(a^4 = e\)).
+Let \(J = \begin{pmatrix}
+        0  & 1 \\
+        -1 & 0
+    \end{pmatrix}.
+\)
+Define \(\phi: C_4 GL(2, \mathbb{R})\) by
+\(\phi(a^k) = J^k\).
+
+Then, \(\phi\) is a faithful representation of \(C_4\) on \(\mathbb{R}^2\).
+
+Often, we may represent to the image subgroup of matrices as the group
+itself.
+
+\paragraph{Cayley's Theorem}
+We may apply the lemma that \(\textrm{im}(\phi)\) is a subgroup, to the
+case where \(G\) is finite and \(H\) is \(S_n\) for some \(n\).
+
+In this case, we get a permutation representation of the group \(G\)
+as a subgroup of \(S_n\).
+
+Cayley's theorem states that every finite group \(G\) has a representation
+as a subgroup of \(S_n\) for \(n \leq \abs{G}\).
+That is, \(S_n\) and its subgroups are all that exists in the case of
+finite groups.
+
+
