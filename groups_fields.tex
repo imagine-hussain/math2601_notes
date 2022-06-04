@@ -170,3 +170,53 @@ If \(\mathbb{F}\) is a field and \(a, b, c \in \mathbb{F}\) then,
     \item If \(ab = 0\) then either \(a = 0\) or, \(b = 0\).
 \end{itemize}
 
+\subsection{Subgroups and Subfields}
+
+\paragraph{Defining Subgroups}
+Let \((G, *)\)  be a group and \(H\) be a non-empty subset of \(G\).
+Suppose that \((H, *)\) satisfies the requirements of a group, then it is a
+subgroup of \(G\).
+
+We may write \(H \leq G\) such that \(H\) inherits the group structure from 
+\(G\).
+
+\paragraph{The Subgroup Lemma}
+Let \((G, *)\) be a group and \(H\) a non-empty subset of \(G\).
+\(H\) is a subgroup if and only if
+\begin{enumerate}
+    \item \(a*b \in H \quad \forall a,b \in H\)
+    \item \(a^{-1} \in H \quad \forall a\in H\)
+\end{enumerate}
+That is, \(H\) is closed under \(*\) and \( ^{-1}\).
+
+Associativity for the subset follows from associativity of the group
+structure. The identity also follows from the closure under an inverse
+and multiplication since \(a^{-1}*a = e \in H\).
+
+Note that every non-trivial group \(G\) will have two subgroups.
+They are the \(\{e\}\) and \(G\).
+
+\paragraph{General Linear Groups}
+Let \(n\) be an integer such that \(n \geq 1\). The set of invertible
+\(n\times n\) matrices over \(\mathbb{F}\) is a group under the operation
+of matrix multiplication.
+This is a special case of a bijection function \(f: S\to S\) with
+\(S = \mathbb{F}^n\). This group will be non-abelian if \(n > 1\).
+This group is names the \textit{General Linear Group}, denoted as
+\(GL(n, \mathbb{F})\)
+
+\paragraph{Special Linear Group}
+The special linear groups are a subset of the general linear groups
+denoted as \(SL(n, \mathbb{F})\) with the requirement that the matrices
+all have a determinant of \(\mathbb{R}\).
+
+\paragraph{Orthogonal Matrix Group}
+The set of \(n\times n\) orthogonal matrices over \(\mathbb{F}\) is a subgroup of 
+\(GL(n, \mathbb{F})\).
+
+That is, \(O(n) \leq GL(n, \mathbb{R})\).
+
+There also exists \(SO(n) = O(n) \cap SL(n, \mathbb{R})\) which is the
+intersection of the orthogonal matrices and special matrices which is also
+a group.
+
