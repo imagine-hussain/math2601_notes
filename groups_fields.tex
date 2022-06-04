@@ -1,0 +1,172 @@
+
+\section{Groups and Fields}
+
+\subsection{Groups}
+
+\paragraph{Definition of Groups}
+A group \(G\) is a non-empty set with a binary operation defined on it.
+It must satisfy the following four properties:
+\begin{enumerate}
+    \item \textbf{Closure:} For all \(a, b \in G\), a composition \(a*b\) is
+    defined and in \(G\).
+    \item \textbf{Associativity:} (a*b)*c = a*(b*c).
+    \item \textbf{Identify:} There exists an \(e\in G\) such that
+    \(a*e = e*a = a\)  for all \(a\in G\).
+    \item \textbf{Inverse:} For all \(a \in G\), there exists an \(a'\)
+    such that \(a*a' = a'*a = e\).
+\end{enumerate}
+
+\paragraph{Groups Order and Pair}
+Groups are actually pairs of objects. The first is the set of elements in
+the group and the second, the operation defined on the group.
+Therefore, groups may be written as \((G, *)\).
+
+If \(G\) is finite, then the order of \(G\), that is \(|G|\), is the
+number of element in \(G\).
+
+\paragraph{Abelian Groups}
+A group is abelian if the operation is \textit{commutative}.
+That is,
+\[a*b = b*a \quad \forall a,b\in G.\]
+
+\paragraph{Notes on the Composition}
+
+Observe that the composition is actually a function \(*: G\times G \to G\).
+\(a*b\) is simply a more convenient notation than \(*(a, b)\).
+
+Though the operation \(*\) is not restricted, it is often one of addition
+(only for abelian groups),
+multiplication (\(\times\), often written as juxtaposition) or,
+composition of functions.
+
+\paragraph{Notation for Repeated Composition}
+We may often use power notation for repeated applications of a composition.
+That is, \(a*a*\dots*a\) (with \(n\) compositions) may be written as \(a^n.\)
+
+Suppose that instead we are using \(+\) as the group operation, then
+\(a+a+\dots+a\) (added \(n\) times), may be written as
+\(na\). Do note that this is \underline{not} multiplication.
+
+\paragraph{Trivial Groups}
+The trivial group consists of exactly one element, the identity.
+That is, \(\{e\}\).
+Since the empty set cannot be a group, as there is required to be at least
+one element in a group, the trivial group is the smallest group that exists.
+
+
+\paragraph{Examples of Groups}
+\((\mathbb{Z}, +)\) is an abelian group under the usual addition operation.
+However, \((\mathbb{Z}, \times)\) is not a group, since the inverse property
+cannot be satisfied.
+Similarly, \((\mathbb, \times)\) is also not a group as \(0\) has no multiplicative
+inverse. However \((\mathbb{R}\backslash 0)\) is a group.
+
+For an integers in the set \(\mathbb{Z}_m = \{0, 1, 2,\dots, m-1\}\)
+is a group under addition, modulo \(m\).
+
+\paragraph{Function Composition and Groups}
+For any \(S\), the set \(F\) of bijective functions
+\(f: S\to S\) is a group under composition but,
+it is not necessarily abelian.
+
+    \subparagraph{Proof}
+    Composing two bijections gives a bijection so, the operation is closed.
+
+    Associativity is of composition follows as
+    \[
+        (f\circ (g\circ h))(x) = f(g(h(x))) = (f\circ g)\circ h(x).
+    \]
+    The identity function is \(e(x) = x\) is a clear bijection.
+    The inverse exists by definition of the bijection.
+
+\paragraph{More Properties of Groups}
+\begin{itemize}
+    \item There is only \textit{one} inverse of each element. That is,
+    the inverse is unique.
+    \item For all \(a\in G\), \(\left(a^{-1}\right)^{-1} = a\)
+    \item For all \(a, b \in G\), \(
+        \left(a*b\right)^{-1} = b^{-1} * a^{-1}.
+    \)
+    \item let \(a, b, c \in G\). Then if \(
+        a * b = a * c
+    \), then \(b = c\).
+    We may think of this as the cancellation property.
+\end{itemize}
+
+\paragraph{Permutation Groups}
+Let \(\Omega_n = \{1, 2, \dots, n\}\). As a ordered set, \(\Omega_n\)
+has \(n!\) permutations.
+
+We may think of these permutations as being functions
+\(f: \Omega_n \to \Omega_n\). Clearly, these are bijections.
+
+Observe that the set \(S_n\) of all permutations forms a group under the
+composition of order \(n\) as, the set of all bijections on a set is a
+group.
+
+We may write these permutations \(f\) as a matrix where, the \(i,j\)
+entry represents how what element is mapped to the \(j\)-th index, by \(f_i\).
+
+\paragraph{Small Finite Groups}
+We may visualise these with a multiplication table where,
+the row element is multiplied on the left of the column element.
+
+In a multiplication table of a finite group, each row must be a permutation
+of the elements of the group. Otherwise, if there was a repetition in a row
+then \(xa = xb\) implies \(a = b\) by the cancellation property.
+Thus, each element occurs no more than once is a row.
+
+If \(a^2 = a\) then, by cancellation property, \(a = e\). So,
+the identity must be the only element that is fixed.
+
+
+\subsection{Fields}
+
+\paragraph{Definition of Fields}
+A field is a set \(\mathbb{F}\) with two binary operations on it,
+addition \((+)\) and, multiplication, \((\times)\) such that, the following
+hold
+\begin{enumerate}
+    \item \((\mathbb{F}, +)\) is an abelian group.
+    \item \((\mathbb{F}^*\backslash \{0\}, \times)\) is an abelian group, where
+    \(0\) is the additive identity.
+    \item The distributive laws \(a\times (b+c) = (a\times b) + (a\times c)\)
+    and \((a+b)\times c = a\times c + b\times c\) hold.
+\end{enumerate}
+
+
+\paragraph{Fields and Notation}
+\begin{itemize}
+    \item Under the obvious operations, typically refer to the field as
+    just \(\mathbb{F}\).
+    \item We use juxtaposition for multiplication under fields and, \(1\) as
+    the multiplicative identify and often \(0\) as the additive identity.
+    \item By our definition of fields as groups, it is equivalent to say
+    that if \(\mathbb{F}\) is a field then, it satisfies the 
+    \(12 = 5 + 5 . + 2\) number laws.
+    \item The smallest possible fields only has two elements, the
+    multiplicative and additive identity. That is, \(\{0, 1\}\).
+    \item We let \(-b\) be the inverse of \(b\) under addition and may write
+    \(a + (-b)\) as \(a - b\) as a shorthand. Similarly, we may write
+    \(\frac{a}{b}\) rather than \(ab^{-1}\) where \(b^{-1}\) is the
+    multiplication inverse and \(b\neq 0\).
+\end{itemize}
+
+\paragraph{Finite Fields}
+The only finite fields that exists are those of the size \(p^k\) for some
+positive integer \(k\)  and prime \(p\) (also known as, the characteristic
+of the field).
+
+These may be called \textit{Galois fields} of size \(p^k\). That is,
+\(GF(p^k)\).
+Note that \(GF(p^k) \neq \mathbb{Z}_{p^k}\) unless \(k = 1\).
+
+\paragraph{Properties of Fields}
+If \(\mathbb{F}\) is a field and \(a, b, c \in \mathbb{F}\) then,
+\begin{itemize}
+    \item \(a0 = 0\)
+    \item \(a(-b) = -(ab)\)
+    \item \(a(b-c) = ab - ac\)
+    \item If \(ab = 0\) then either \(a = 0\) or, \(b = 0\).
+\end{itemize}
+
