@@ -159,4 +159,116 @@ These conditions may be combined such that \(U\) is a subspace of
 The other axioms may be inherited from \(V\) and it must be ensured that
 \(\zero \in U\).
 
+\paragraph{All subspaces of \(\mathbb{R}^3\)}
+Trivially, every subspace must have \(\zero\) as an element so,
+it is clear that \(\{\zero\} \leq \mathbb{R}^3\).
+Then, the remaining subspaces must be of the form
+\[
+    \{\lambda \va : \lambda\in \mathbb{R} \}
+    \quad \text{\quad or \quad} \quad
+    \{\lambda \va + \mu \vb: \lambda, \mu \in \mathbb{R} \}.
+    \quad \text{\quad or \quad} \quad
+    \{\lambda \va + \mu \vb + v\vc: \lambda, \mu, v\in \mathbb{R} \}.
+\]
+That is, any line or plane through the origin or, all of \(\mathbb{R}^3\).
 
+\paragraph{Subspace Examples}
+\begin{itemize}
+    \item In \(M_{p, p}\), the set of symmetric matrices is a subspace.
+    \item Let \(X\)  be any set and \(Y\subseteq X\)
+    The set \(
+        \{
+            f\in \mathcal{F}[X] : f(y) = 0 \forall y\in Y
+        \}
+    \) is a subspace of \(\mathcal{F}\).
+    \item For any interval \(I\subseteq \mathbb{R}\) the set \(C(I)\)
+    of continuous functions on \(I\) is a subspace of \(\mathcal{R}(I)\).
+    Similarly, if \(I\) is open, the set of differential functions,
+    continuously differentiable, twice differentiable, \(\dots\), 
+    are a subspace of \(I\), each one being a subspace of the previous.
+\end{itemize}
+
+\paragraph{Sub-Vector space but not Subspace}
+It is entirely possible to have a subset of a vector space be a vector space
+but, not a subspace. A usual example is \(\mathbb{R}^{+}\) where multiplication
+is used as addition. This set is a subset of \(\mathbb{R}\) and a vector
+space but it is not a subspace.
+
+Also consider, \(\mathbb{C}^2\) as a vector space and let and let 
+\(V = \{
+    \vv \in \mathbb{C}^2 : v_1 \in \mathbb{R}
+\}\).
+
+Here, \(V\) is not a subspace of \(\mathbb{C}^2\) over \(\mathbb{C}\).
+This stems from the fact that over \(\mathbb{C}\), complex scalars are
+allowed. However, we could consider \(\mathbb{C}^2\) as a vector space over
+\(\mathbb{R}\) such that we are only allowed to multiply by scalars in
+\(\mathbb{R}\) but, still allowed complex elements in the vector.
+
+
+\subsection{Linear Combinations, Spans and Independence}
+
+\paragraph{Linear Combinations}
+Let \(V\) be a vector space over \(\mathbb{F}\). A (finite)
+linear combination of vectors \(\vv_1, \vv_2, \dots, \vv_n\) in \(V\)
+is any vector that for scalars \(a_k\), may be expressed as
+\[
+    \alpha_1\vv_1 + \alpha_2\vv_2 + \dots + \alpha_n\vv_n;
+\]
+
+\paragraph{Span}
+If \(S\) is a subset of \(V\) then, the space of \(S\) is
+\[
+    \span(S) = \{\text{all finite linear combinatons of vectors in \(S\)}\}.
+\]
+If \(\span(S) = V\) then, \(S\) is a spanning set of \(V\). That is,
+\(S\) spans \(V\).
+It may also be natural to say that \(V\) generates \(S\).
+
+\paragraph{Spans as Subspaces}
+If \(S\) is a non-empty subset of a vector space \(V\) then,
+\(\span(S)\) is a subspace of \(V\).
+\begin{itemize}
+    \item The zero element trivially exists and, the span is non-empty as
+    \(S\) is non-empty.
+    \item For \(\vv, \vw \in S\), \(\lambda\vv + \vw\) is a linear combination
+    of two linear combinations of \(S\) which makes it a linear combination of
+    element in \(V\) and thus, is in \(\span (S)\).
+\end{itemize}
+
+\paragraph{Linear Independence}
+A subset \(S\) of a vector space \(V\) is linearly independent
+if for all vectors \(\vv_1, \vv_2, \dots ,\vv_n\in S\), (where \(n\geq 1\)),
+with \(\alpha_i in \mathbb{F}\),
+\[
+    \alpha_1 \vv_1 + \alpha_2 \vv_2 + \dots + \alpha_n \vv_n = 0,
+\]
+implies that \(a_i = 0\)  for all \(i = 1\dots n\).
+That is, the solution to the above equation is unique.
+
+\paragraph{Linear Dependence}
+A set \(S = \{\vv_1, \dots \vv_n\}\) is  linearly dependent in \(V\) then,
+there exists an \(i, 2\leq i \leq n\) 
+such that 
+\[
+    \vv_i = \sum_{j=1}^{i-1} \beta_j \vv_j.
+\]
+
+\paragraph{Properties and Theorems for Linear Dependence}
+\begin{itemize}
+    \item Any subset of a linearly independent set is linearly independent,
+    \item If \(\vv \in \span(S)\) then \(S\cap \{\vv\}\) is linearly dependent,
+    \item If \(S\) is linearly independent and \(S\cup \{\vv\}\)
+    is linearly dependent then, \(v\in \span(S)\),
+    \item If \(S_1 \subseteq S_2\) then \(\span(S_1) \subseteq span(S_2)\),
+    \item If \(S_1 \subseteq \span(S_2)\) then
+    \(\span(S_1) \subseteq span(S_2)\),
+    \item \(\span(S\cup \{\vv\}) = span(S)\) if and only if
+    \(\vv \in \span(S)\).
+    \item If \(S\) is linearly dependent then, there exists \(\vv\in S\)
+    such that \(S\backslash\{\vv\} = \span{S}\).
+    \item In \(\mathbb{F}^n\), if \(P\in GL(p, \mathbb{F})\) is also
+    an invertible matrix and \(\{\vv_i\}\) is a linearly independent set
+    then, \(\{P\vv_i\}\) is also linearly independent. This may be proved
+    by contradiction.
+\end{itemize}
