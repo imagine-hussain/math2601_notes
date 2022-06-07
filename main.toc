@@ -46,3 +46,6 @@
 \contentsline {paragraph}{Matrices}{8}{section*.40}%
 \contentsline {paragraph}{Polynomials}{8}{section*.41}%
 \contentsline {paragraph}{Function Spaces}{8}{section*.42}%
+\contentsline {subsection}{\numberline {2.2}Subspaces}{9}{subsection.2.2}%
+\contentsline {paragraph}{Defining Vector Subspaces}{9}{section*.43}%
+\contentsline {paragraph}{Subspace Lemma}{9}{section*.44}%

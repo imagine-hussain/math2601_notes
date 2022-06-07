@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1654352165 "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.tex" "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.pdf" "main" 1654353164
-  "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.aux" 1654352166 5971 d237c542ae3b8121b193e3de714b7861 ""
+["pdflatex"] 1654564845 "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.tex" "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.pdf" "main" 1654564846
+  "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.aux" 1654564846 6298 2726918de921adb46657ab601933ec19 ""
   "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.tex" 1654349584 1482 c7a20d7da69e03e0c04f82a25094a773 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -127,17 +127,17 @@
   "groups_fields.tex" 1654340449 12706 c58bf11121fd822bb42851ee67327eaf ""
   "inner_product_spaces.tex" 1654308683 0 d41d8cd98f00b204e9800998ecf8427e ""
   "linear_transformations.tex" 1654308683 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "main.aux" 1654352166 5971 d237c542ae3b8121b193e3de714b7861 "pdflatex"
-  "main.out" 1654352166 938 f485741e5922b4df372b17f009cd3d94 "pdflatex"
+  "main.aux" 1654564846 6298 2726918de921adb46657ab601933ec19 "pdflatex"
+  "main.out" 1654564846 1040 d64531d942a0f4497fd2a31bc11d0c4c "pdflatex"
   "main.tex" 1654349584 1482 c7a20d7da69e03e0c04f82a25094a773 ""
-  "main.toc" 1654352166 3315 f4894c383cab1fb8e73f6dccd661fff6 "pdflatex"
+  "main.toc" 1654564846 3519 b8f46ed81926463c49bf9c29e4de21bf "pdflatex"
   "matrix_functions_ode_systems.tex" 1654308683 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "vector_spaces.tex" 1654353163 5501 009b2f4a71c58592bce2ffcd605c5321 ""
+  "vector_spaces.tex" 1654564844 6332 2133ae177ba8cd46380549424bffcc17 ""
   (generated)
+  "main.toc"
   "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.pdf"
-  "main.log"
+  "main.aux"
   "main.out"
   "/Users/hussainnawaz/math/math2601_Higher_Linear_Algebra/math2601_notes/main.log"
-  "main.aux"
+  "main.log"
   "main.pdf"
-  "main.toc"
