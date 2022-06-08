@@ -25,4 +25,4 @@
 *.fdb_latexmk
 *.synctex
 *.synctex\(busy\)
-*.synctex.gz*;
+*.synctex.gz*
