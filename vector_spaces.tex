@@ -388,4 +388,33 @@ can be written \textit{uniquely} as
 \]
 
 \subsection{Coordinates}
+Suppose that \(V\) is a vector space of dimension \(n\) over \(\mathbb{F}\)
+and \(\mathcal{B} = \{\vv_1, \vv_2,\dots, \vv_n\}\) is an ordered
+basis for \(V\) over \(\mathbb{F}\).
 
+Then, if \(\vv\in \mathbb{F}\) then for unique \(\alpha_i\),
+\[
+    \sum_{i=1}^{n} \alpha_i \vv_i.
+\]
+
+Then, we call \(\valpha
+    = \begin{pmatrix}
+        \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_n
+    \end{pmatrix}
+\) the coordinate vector of \(v\) with respect to \(\mathcal{B}\)
+and refer to \(\alpha_i\) as the coordinates of \(\vv\).
+
+A useful notation is
+\[
+    \valpha = [\vv]_\mathcal{B}
+    \text{\quad if \quad}
+    \vv = \sum_{i=1}^{n} \alpha_i \vv_i.
+\]
+
+\paragraph{Finding Coordinates in Non-standard Basis}
+The standard way of solving for a coordinate in any basis is to solve
+linear equations.
+Suppose that we want to find the coordinates of \(\vv\) over the
+basis \(\mathcal{B}\) with elements \(\{\vb_1, \dots, vb_n\}\)
+then, we may solve the set of linear equations for each component of
+\(\vv\).

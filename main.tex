@@ -25,8 +25,16 @@
 \newcommand{\vy}{\mathbf{y}}
 \newcommand{\vz}{\mathbf{z}}
 \newcommand{\zero}{\mathbf{0}}
+\newcommand{\valpha}{\mathbf{\alpha}}
 % 
 \newcommand{\spans}{\mathrm{span}}
+
+% Augmented Matrix
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
 
 \usepackage{hyperref}
 \hypersetup {                                % Formatting for hyperlinks
