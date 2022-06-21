@@ -95,3 +95,186 @@ If \(V\) is a finite dimensional vector space over \(\mathbb{F}\) and
 \(T: V \to W\) is linear then,
 \[\rank(T) + \nullity(T) = \dim(V).\]
 
+\subparagraph{Rank and Nullity - One to One}
+A linear map \(T\) is one-to-one if and only if
+\(\nullity(T) = 0\).
+
+\paragraph{Bijetions, Injections and Surjections}
+Let \(V, W\) be vector spaces over \(\mathbb{F}\) and suppose
+\(\dim(V) = \dim(W)\) which are both finite.
+Let \(T: V \to W\) be linear.
+The following are equivalent
+\begin{enumerate}
+    \item \textbf{Bijective:} \(T\) is invertible,
+    \item \textbf{Injective:} \(T\) is one-to-one,
+    \item \textbf{Surjective:} \(T\) is onto. That is, \(\rank(T) = \dim(V)\).
+\end{enumerate}
+
+\paragraph{Isomorphic Maps}
+An invertible linear map \(T: V \to W\) is an isomorphism of
+vector spaces \(V\) and \(W\).
+
+Isomorphism is an equivalence relation on vector spaces.
+\begin{enumerate}
+    \item \textbf{Reflexive:} The identity map \(\mathrm{id}: V\to V\) is
+        an isomorphism from \(V\) to itself.
+    \item \textbf{Symmetric:} If \(T: V \to W\) is an isomorphism then,\
+        \(T^{-1}\) is an isomorphism from \(W \to V\).
+    \item \textbf{Transitive:} If \(T: V \to W\) is an isomorphism and
+        \(S: W\to X\) is an isomorphism then
+        \(S \circ T : V \to X\) is an isomorphism.
+\end{enumerate}
+
+\paragraph{Easy Test for Isomorphism}
+Finite dimension spaces \(V, W\) are isomorphism over 
+\(\mathbb{F}\) if and only if,
+\[ \dim(V) = \dim(W).\]
+
+\paragraph{Isomorphism: Coordinates and Matrices}
+Taking coordinates in some chosen basis is an isomorphism.
+All isomorphisms to \(\mathbb{F}^p\) can be described in this way.
+
+\subparagraph{Isomorphism of Row and Column Matrices}
+Note that all the vector spaces
+\(\mathbb{F}^p, M_{p, 1}(\mathbb{F}), M_{1, p}(\mathbb{F})\)
+are all isomorphic.
+
+\subsection{Spaces Associated with Matrices}
+
+\paragraph{Kernel, Image Rank - Matrix as Map}
+Let \(A\) be a \(p\times q\) matrix over a field \(\mathbb{F}\).
+Define a map \(T: \mathbb{F}^q \to \mathbb{F}^p\)
+as \(T(\vx) = A\vx\).
+
+Then, the kernel, rank, image and nullity of \(A\) are by definition, the same
+as those defined under the map \(T\).
+
+\paragraph{Image}
+Suppose \(A\) has columns \(c_1, \dots, c_q \in \mathbb{F}\).
+Then,
+\begin{align*}
+    \img(A) &= \{A \vx : x \in \mathbb{F}^q\} \\
+            &= \{x_1, \vc_1 + \dots, x_q \vc_q : x_i \in \mathbb{F}\}
+            &= \spans(\{\vc_1, \dots, \vc_nq\}).
+\end{align*}
+That is, \(\img(A)\) is the space spanned by the columsn of \(A\), also
+knows as the column space of \(A\).
+This may be denoted as \(\col(A) \leq \mathbb{F}\).
+
+The rank of \(A\) is the dimension of the column space of \(A\).
+
+\paragraph{Rank-Nullity Theorem: Matrices}
+For \(A\in M_{p, q} \), let \(q\) be the number of columns of \(A\).
+Then, \[
+    \rank(A) + \nullity(A) = q
+.\]
+
+\paragraph{Row Space}
+The row space of \(A\), \(\row(A)\) is the space spanned by the rows of \(A\).
+It follows that \[
+    \row(A) = \col(A^T) = \img(A^T).
+.\] 
+
+\paragraph{Rank of Matrix}
+The rank of the matrix is identical to the column space of the matrix.
+The row-rank (dimension of the row space) is equivalent to the rank.
+
+\subsection{Matrix of a Linear Map}
+
+\paragraph{Matrices of Linear Maps}
+Let \(V, W\) be two finite dimensional vector spaces over \( \mathbb{F} \).
+Suppose that \(\dim(V) = q\) and \(V\) and basis \(\mathcal{B}\).
+Also suppose that \(W\) has basis \(\mathbb{C}\) and \(\dim(W) = p\).
+
+If \(T: V \to W\) is a linear map then, there exists a unique
+\(A \in M_{p, q} \mathbb{F}\) with
+\[
+    [T(\vv)]_\mathcal{C} = A[\vv]_\mathcal{B}
+.\]
+
+Conversely, for any \(A\in M_{p, q}(\mathbb{F})\), the equation
+above defines a unique linear map from \(V \to W\).
+
+\subparagraph{Notation}
+We call the matrix \(A\) above, the matrix of \(T\) with respect
+to \(\mathcal{B}\) and \(\mathcal{C}\)
+A useful notation for this the matrix \([T]_\mathcal{C}^\mathcal{B}\).
+Then, the equation from the theorem takes the following form: \[
+    [T(\vv)]_\mathcal{C}
+    =
+    [T]_\mathcal{C}^\mathcal{B} [\vv]_\mathcal{B}
+.\]
+You may think of the \(\mathcal{B}\) as cancelling out. This is not very rigourous.
+% \paragraph{Finding \([T])_\mathcal{C}^\mathcal{B}\)}
+
+\paragraph{Composition of Linear Maps as Matrices}
+Let \(T: V \to W\) and \(S: W \to X\) be linear maps betweeen vector spaces.
+Suppose \(V, W, X\) have bases \(\mathcal{A}, \mathcal{B}, \mathcal{C}\)
+respectively.
+Then, the matrix \(S \circ T : V \to X\) is the product of teh matrices of
+\(T\) and \(S\) with the appropriate bases as follows:
+\[
+   [S \circ T]_\mathcal{C}^\mathcal{A}
+   =
+   [S]_\mathcal{C}^\mathcal{B} \cdot [T]_\mathcal{B}^\mathcal{A}
+.\]
+
+\paragraph{Inverting Matrices as Transformations}
+If \(T: V \to W\) is linear and invertible then, the matrix of \(T^{-1}\)
+is the inverse of the matrix of \(T\).
+Alternatively \[
+    [T^{-1}]_\mathcal{B}^\mathcal{C}
+    =
+    \left( [T]_\mathcal{B}^\mathcal{C} \right)^{-1}
+.\]
+
+\paragraph{Change of Basis Matrix}
+Suppose that a vector space has two bases \(\mathcal{B}\) and \(\mathcal{C}\).
+Then the matrix \([id]_\mathcal{C}^\mathcal{B}\) is called the
+change of basis matrix (from \(\mathbb{B} \to \mathbb{C}\)).
+
+This may be used to change coordinates as follows: \[
+    [\vv]_\mathcal{C}
+    =
+    [\id]_\mathcal{C}^\mathcal{B} [\vv]_\mathcal{B}
+.\]
+It may often be easier to find the basis change in the other direction and
+then take the inverse.
+
+\paragraph{Finding a Transformation Matrix}
+To find the matrix \(T: V \to W\) with respect to bases \(\mathcal{B}\)
+as the domain and \(\mathcal{C}\) in the codomain, \(T\) is found through the
+following three mappings.
+
+For any  \(\vv \in V\):
+\begin{enumerate}
+    \item Calculate \(\id_V (\vv) = \vv\) where \(\id_V\) is the identity
+        map on \(V\).
+    \item Calculate \(T(\id_V(\vv)) = T(\vv) \)
+    \item Calculate \(
+        \id_W \left( T (\id_V(\vv)) \right) = T(\vv)\)
+        where \(\id_W\) is the identity map on \(W\).
+\end{enumerate}
+
+\pargraph{TODO: commutative diagram}
+
+\paragraph{Rank and Nullity of Matrices}
+Let \(T: V \to W\) be a linear map between finite dimensional vector spaces
+over \(\mathbb{F}\).Let \(A\) be the matrix for this transformation
+with respect to any two bases in \(V\) and \(W\).
+
+Then, \[
+    \nullity(A) = \nullity(T) \text{ and } \rank(A) = \rank(T)
+.\]
+
+\paragraph{Invariant Subspaces}
+Let \(V\) be a vector space over \( \mathbb{F} \) and \(T: V\to V\)
+be a linear map.
+If \(X \leq V\) such that \(T(X) \leq X\) then, \(X\) is an invariant
+subspace of \(T\).
+
+Recall that we know there is always a complementary subspace \(Y\)
+such that \(V = X \oplus Y\).
+Note, \(Y\) is not necessarily invariant.
+
+

@@ -31,13 +31,18 @@
 % 
 \newcommand{\spans}{\mathrm{span}}
 \newcommand{\img}{\mathrm{im}}
+\newcommand{\nullity}{\mathrm{nullity}}
+\newcommand{\col}{\mathrm{col}}
+\newcommand{\row}{\mathrm{row}}
+\newcommand{\id}{\mathrm{id}}
+% \newcommand{\rank}{\mathrm{rank}}
 
 % Augmented Matrix
-\newenvironment{amatrix}[1]{%
-  \left(\begin{array}{@{}*{#1}{c}|c@{}}
-}{%
-  \end{array}\right)
-}
+%\newenvironment{amatrix}[1]{%
+%   \left(\begin{array}{@{}*{#1}{c}|c@{}}
+% }{%
+%   \end{array}\right)
+% }
 
 \usepackage{hyperref}
 \hypersetup {                                % Formatting for hyperlinks
@@ -55,8 +60,8 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}	
 \title{
-	Higher Linear Algebra \\
-	Notes | Math2601 UNSW
+        Higher Linear Algebra \\
+        Notes | Math2601 UNSW
 }
 \author{Hussain Nawaz \\ hussain.nwz000@gmail.com}
 \date{2022T2}
@@ -68,6 +73,7 @@
 \maketitle
 \tableofcontents
 \newpage
+  \section{test}
     \subfile{groups_fields.tex}
     \subfile{vector_spaces.tex}
     \subfile{linear_transformations.tex}
