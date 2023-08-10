@@ -1,0 +1,189 @@
+
+\section{Inner Product Spaces}
+
+\subsection{The Real Dot-Product}
+
+\paragraph{Definition}
+
+For any two vectors \( \vv, vu \) in \( \mathbb{R}^p \), recall that \[
+    \vv \cdot \vu = \sum_{i=1}^p v_i u_i
+.\]
+
+\paragraph{Positive Definite}
+A bilinear map \( T \) is a positive definite if and only if, for all \( \vv \),
+\[
+    T(\vv, \vv) \geq 0 \quad\text{and}\quad T(\vv, \vv) = 0 \iff \vv = \vec{0}.
+\]
+
+\paragraph{Cauchy-Schwarz Inequality}
+For any \( \va, \vb \in \mathbb{R}^p \), \[
+    - ||\va|| ||\vb|| \leq \va \cdot \vb \leq ||\va|| ||\vb||.
+\]
+
+It follows that \[
+    -1 \leq  \dfrac{\va \cdot}{||\va|| ||\vb||} \leq 1.
+\]
+
+\paragraph{Triangle Inequality}
+For any \( \va, \vb \), \[
+    ||\va + \vb|| \leq ||\va|| + ||\vb||.
+\]
+
+As a vector, the way to think about this is that \( \va + \vb \) is the
+hypotenuse between \( \va \) and \( \vb \). It follows directly from
+the Cauchy-Schwarz Inequality.
+
+\paragraph{Cosine Angle Between Vectors}
+For non-zero \( \va, \vb \), the angle \( \theta \) between \( \va \)
+and \( \vb \) is defined with \[
+    \cos \theta = \dfrac{\va \cdot \vb}{||\va|| ||\vb||}, \quad \theta \in [0, \pi].
+\]
+
+\paragraph{Orthogonality}
+Two vectors are orthogonal if and only if \( \va \cdot \vb = 0 \).
+
+\paragraph{Orthogonal Complement}
+Let \( X \) be a subspace of some vector space \( V \).
+Then, the orthogonal complement \( X^\perp \) is the set where
+every element of \( X^\perp \) is orthogonal to \( X \).
+That is \[
+    X^\perp = {\vy : \vy \cdot \vx = 0 \quad \forall \vx \in X}.
+\]
+
+\paragraph{Orthogonal Complements as Direct Sum}
+For any subspace \( V \), \[
+    V = X \oplus X^\perp.
+\]
+
+\paragraph{Orthonormality}
+A set is orthogonal if all elements in it are orthogonal to each other.
+A set is orthonormal if it is an orthogonal set and all elements have
+unit length.
+
+\paragraph{Orthogonality and Linear Independence}
+If a set is orthogonal, then it is linearly independent.
+
+% 
+% 
+%
+\subsection{The Complex Dot Product}
+
+\paragraph{Defining the Complex Dot Product}
+For any \( \va, \vb \in \mathbb{C}^p \), \[
+    \va \cdot \vb = \sum_{i=1}^p \overline{a_i} b_i = \overline{\va}^{T}B.
+\]
+That is, take the conjugate of the left term and then apply the real dot
+product.
+
+For convenience, define the following shorthand: \[
+    \va^* = \overline{\va}^T.
+\]
+
+\paragraph{Properties of the Dot-Product}
+The complex dot-product has the following properties for all \( \lambda \in \mathbb{C} \)
+and \( a, b \in \mathbb{C}^p \):
+\begin{itemize}
+    \item \( a\cdot (\lambda b + c) = \lambda a\cdot b + \lambda a \cdot c \),
+    \item \textbf{Conjugate Symmetry}: \( a\cdot b = \overline{b \cdot a} \)
+    \item \textbf{Conjugate Linearity}:
+        \( (\lambda a + b) \cdot c  = \overline{\lambda a} \cdot b  + \overline{b} \cdot c\)
+    \item \( ||a|| \) is a positive definite.
+\end{itemize}
+
+Note that for the real-case conjugate symmetry and conjugate linearity
+are just symmetry and linearity. The mix of linearity in the second argument
+and conjugate linear in the first argument is called \underline{sesquilinearity}.
+
+Further, the triangle and Cauchy-Schwarz inequalities hold for the complex
+case too.
+
+These properties exist to satisfy that the dot-product is an inner-product.
+
+%
+%
+%
+\subsection{Inner Product Space}
+Let \( V \) be a vector space over \( \mathbb{F} \)
+(typically let \( \mathbb{F} = \mathbb{C} \) unless stated otherwise).
+
+Then an inner product is a mapping \( \innerprod{}{} \) from \( V \times V \)
+to \( \mathbb{F} \) that satisfies the following properties for all \( \lambda \in \mathbb{F} \)
+\begin{enumerate}
+    \item \( \innerprod{u}{v + w} = \innerprod{u}{v} + \innerprod{u}{w} \),
+    \item \( \innerprod{u}{\lambda v} = \lambda \innerprod{u}{v}\),
+    \item \( \innerprod{v}{u} = \overline{\innerprod{u}{v}} \),
+    \item \( \innerprod{v}{v} \) is a real, positive definite.
+\end{enumerate}
+
+Observe that this is just a sesquilinear, conjugate symmetric, real positive definite.
+The dot-products are examples of inner products.
+
+\paragraph{Standard Inner Product for Continuous Functions}
+The inner product over \( \mathcal{C}[a, b] \) is defined as \[
+    \innerprod{f}{g} = \int_a^b f(x) g(x) dx.
+\]
+
+%
+%
+%
+\subsection{Orthogonality}
+For an inner-space \( V \), two non-zero vectors \( u, v \in V \) are orthogonal if
+and only if \( \innerprod{u}{v} = 0 \).
+Notate this as \( u \perp v \).
+The usual definitions for othogonal and orthonormal sets holds.
+
+\paragraph{Projections}
+For \( \vu, \vv \in V \), we define the projection of \( \vu \) onto \( \vv \)
+as \[
+    \proj_{\vv}(v) = \dfrac{
+        \innerprod{\vv}{\vu}
+    }{
+        \innerprod{v}{v}
+    } \vv
+\]
+Note that projection is linear.
+
+Also note that \( \vu - \alpha \vv \) if and only if \[
+    \vu - \alpha \vv = \vu - \proj_\vv(\vu)
+\]
+
+\paragraph{Orthogonal Sets as Spans}
+Suppose that \( V = \set{v_1, \dots, v_k} \) is an orthogonal set.
+Then it is also a linearly independent set and so for any \( \vv \in V \)
+we can write \[
+    \vv = \sum_{i=1}^k \alpha_i v_i. 
+\] for unique \( \alpha_i \).
+
+For our orthogonal sets, \[
+    \alpha_i = \dfrac{\innerprod{\vv_i}{v}}{||v_i||^2}.
+\]
+If the set is orthonormal, then we can simplify this to \[
+    \alpha_i = \innerprod{\vv_i}{v}.
+\]
+
+Alternatively, for the orthogonal case, \[
+    \vv = \sum_{i = 1}^{k} \proj_{\vv_i}(\vv).
+\]
+
+\subsection{Gram-Schmidt Process}
+
+\paragraph{Existence of Orthonormal Bases}
+Any finite dimensional, inner-product space \( V \) has an orthonormal basis.
+We can construct this basis using the Gram-Schmidt process.
+
+\paragraph{The Process}
+Suppose that \( S = \set{v_1, \dots v_k} \) is a basis for some \( V \)
+over \( \mathbb{F} \).
+Then, we can construct an orthonormal basis \( S' = \set{w_1, \dots, w_k} \)
+that independently spans \( V \) with the following formula: \[
+    w_{i} = v_{i} - \sum_{j = 1}^{i - 1} \proj_{w_j}(v_i).
+\]
+
+\paragraph{Expansion over \( \mathbb{R}^3 \)}
+Let \( \set{v_1, v_2, v_3} \) be an orthogonal set spanning \( \mathbb{R}^3 \).
+Then the corresponding orthonormal set is \( \set{w_1, w_2, w_3} \) where
+\begin{align*}
+    \vw_1     &= \vv_1, \\
+    \vw_2     &= \vv_2 - \proj_{\vw_1}(\vv_2), \\
+    \vw_3     &= \vv_3 - \proj_{\vw_1}(\vv_3) - \proj_{\vw_2}(\vv_3).
+\end{align*}
