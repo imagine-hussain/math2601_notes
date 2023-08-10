@@ -42,19 +42,6 @@ and \( \vb \) is defined with \[
 \paragraph{Orthogonality}
 Two vectors are orthogonal if and only if \( \va \cdot \vb = 0 \).
 
-\paragraph{Orthogonal Complement}
-Let \( X \) be a subspace of some vector space \( V \).
-Then, the orthogonal complement \( X^\perp \) is the set where
-every element of \( X^\perp \) is orthogonal to \( X \).
-That is \[
-    X^\perp = {\vy : \vy \cdot \vx = 0 \quad \forall \vx \in X}.
-\]
-
-\paragraph{Orthogonal Complements as Direct Sum}
-For any subspace \( V \), \[
-    V = X \oplus X^\perp.
-\]
-
 \paragraph{Orthonormality}
 A set is orthogonal if all elements in it are orthogonal to each other.
 A set is orthonormal if it is an orthogonal set and all elements have
@@ -187,3 +174,70 @@ Then the corresponding orthonormal set is \( \set{w_1, w_2, w_3} \) where
     \vw_2     &= \vv_2 - \proj_{\vw_1}(\vv_2), \\
     \vw_3     &= \vv_3 - \proj_{\vw_1}(\vv_3) - \proj_{\vw_2}(\vv_3).
 \end{align*}
+
+%
+%
+%
+\subsection{Orthogonal Complement}
+
+
+\paragraph{Orthogonal Complement}
+Let \( X \) be a subspace of some vector space \( V \).
+Then, the orthogonal complement \( X^\perp \) is the set where
+every element of \( X^\perp \) is orthogonal to \( X \).
+That is \[
+    X^\perp = {\vy : \vy \cdot \vx = 0 \quad \forall \vx \in X}.
+\]
+
+\paragraph{Orthogonal Complements as Direct Sum}
+For any subspace \( V \), \[
+    V = X \oplus X^\perp, \quad\text{and}\quad {\left(X^\perp\right)}^\perp = X.
+\]
+
+Then, for any \( \vv \in V \), we can write the following for unique
+\( \vx, \vy \): \[
+    \vv = \vx + \vy, \quad \vx \in X, \vy \in X^\perp.
+\]
+
+Annotate this as \( \vx = \proj_X(\vv), \vy = \proj_{X^\perp}(\vv) \).
+
+\paragraph{Projection on Subspace}
+From the previous result, for any subspace \( W \) with orthogonal basis,
+we calculate the projection
+onto that as follows: \[
+    \proj_{W}(\vv) = \sum_{i = 1}^{k} \proj_{\vw_i}(\vv).    
+\]
+This follows directly from linearity of projection and the result of orthogonal
+sets as spans.
+
+
+\paragraph{Properties of the Projection Function}
+Suppose that \( W \) is a subspace of \( V \) with \( \vv\in V, \vw\in W \).
+Then,
+\begin{itemize}
+    \item \( \vv - \proj_{W}(\vv) \) is in \( W^\perp \),
+    \item \( \proj_W(\vw) = \vw \).
+    \item The projection mapping is idempotent. That is \( \proj_W \circ \proj_W = \proj_W \).
+    \item Projection does not extend lengths. That is, \( ||\proj_W(\vv)|| \leq ||\vv|| \).
+    \item \( \proj_W + \proj_{W^\perp} \) is an identity mapping.
+\end{itemize}
+
+\paragraph{Projection Minimises}
+Recall that projection does not extend lengths.
+In-fact we extend this to note that projection will actually minimise the length of
+the difference between the original vector and the projection.
+That is, \( \vv - \proj_W(\vv) \) is the shortest distance between \( \vv \)
+and \( W \).
+Consequently, \[
+    ||\vv - \vw|| \geq  ||\vv - \proj_W(\vv)||
+\]
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[->, thick]{(0, 0) -- node[below] {\( \vw \)} (12, 0)};
+    \draw[->, thick]{(0, 0) -- node[above] {v} (10, 5)};
+    \draw[->, thick]{(5, 2.5) -- node[right] {\(\vv - \proj_{\vw}(\vv)\)} (5, 0)};
+    \draw[->, red, thick]{(0, 0) -- node[below] {\( \proj_{\vw}(\vv) \)} (5, 0)};
+    \draw[->, blue, thick]{(10, 5) -- node[right]{\( \vv - \vw \)}(12, 0)};
+\end{tikzpicture}
+\end{center}
