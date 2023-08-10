@@ -235,9 +235,9 @@ Consequently, \[
 \begin{center}
 \begin{tikzpicture}
     \draw[->, thick]{(0, 0) -- node[below] {\( \vw \)} (12, 0)};
-    \draw[->, thick]{(0, 0) -- node[above] {v} (10, 5)};
-    \draw[->, thick]{(5, 2.5) -- node[right] {\(\vv - \proj_{\vw}(\vv)\)} (5, 0)};
-    \draw[->, red, thick]{(0, 0) -- node[below] {\( \proj_{\vw}(\vv) \)} (5, 0)};
-    \draw[->, blue, thick]{(10, 5) -- node[right]{\( \vv - \vw \)}(12, 0)};
+    \draw[->, thick]{(0, 0) -- node[above] {\( \vv \)} (8, 5)};
+    \draw[->, brown, ultra thick]{(8, 5) -- node[left] {\(\vv - \proj_{\vw}(\vv)\)} (8, 0)};
+    \draw[->, red, ultra thick]{(0, 0) -- node[below] {\( \proj_{\vw}(\vv) \)} (8, 0)};
+    \draw[->, blue, thick]{(8, 5) -- node[right]{\( \vv - \vw \)}(12, 0)};
 \end{tikzpicture}
 \end{center}
