@@ -155,7 +155,7 @@ Then,
 \begin{align*}
     \img(A) &= \{A \vx : x \in \mathbb{F}^q\} \\
             &= \{x_1, \vc_1 + \dots, x_q \vc_q : x_i \in \mathbb{F}\}
-            &= \spans(\{\vc_1, \dots, \vc_nq\}).
+            &= \spans(\{\vc_1, \dots, \vc_{nq}\}).
 \end{align*}
 That is, \(\img(A)\) is the space spanned by the columsn of \(A\), also
 knows as the column space of \(A\).
@@ -256,7 +256,7 @@ For any  \(\vv \in V\):
         where \(\id_W\) is the identity map on \(W\).
 \end{enumerate}
 
-\paragraph{TODO: commutative diagram}
+\paragraph{TODO:\@ commutative diagram}
 
 \paragraph{Rank and Nullity of Matrices}
 Let \(T: V \to W\) be a linear map between finite dimensional vector spaces
@@ -277,4 +277,60 @@ Recall that we know there is always a complementary subspace \(Y\)
 such that \(V = X \oplus Y\).
 Note, \(Y\) is not necessarily invariant.
 
+\paragraph{Invertibility of Linear Map and its Matrix}
+Let \( T: V \to W \) be a linear map between finite dimensional vector spaces.
+Suppose that \( A \) is the matrix of \( T \) with respect to any two bases.
+Then, \( T \) is invertible if and only if \( A \) is invertible.
+
+\subsection{Similarity}
+
+Matrices \( A, B \in M_{p, p}(\mathbb{F}) \) are similar if there exists
+some invertible matrix \( P \) such that \[
+    B = P^{-1} A P.
+\]
+
+Similarity is an equivalence relationship on square matrices of the same size.
+That is, it is reflexive, symmetric and transitive.
+
+Similarity means that the matrices represent the same linear map with
+respect to the choice of their two bases.
+We can choose \( P \) to be a change of basis matrix.
+
+\paragraph{Similarity Invariants}
+A property of matrices is similar invariant if it is preserved under similarity.
+That is, it holds for all similar matrices.
+
+Note that the determinant is a similarity invariant. Thus, if matrices
+have different determinants, then they are not similar.
+However, an equal determinant does not imply similarity.
+
+
+\paragraph{Examples of Similarity Invariants}
+The following are all similarity invariants:
+\begin{itemize}
+    \item Trace
+    \item Determinants
+    \item Rank, Nullity
+\end{itemize}
+
+
+\subsection{Multi-linear Maps}
+
+\paragraph{Defining Bi-Linearity}
+A mapping \( T: U \times V \to W \) is bilinear if, it is linear with
+respect to changes in any of its arguments.
+That is,
+\begin{align*}
+    T(\lambda u + u', v) &= \lambda T(u, v) + T(u', v) \\
+    T(u, \lambda v + v') &= \lambda T(u, v) + T(u, v').
+\end{align*}
+
+\paragraph{Extending to Multi-linear Maps}
+Like bi-linear maps, multi-linear maps are linear with respect to changes
+in any of their arguments.
+
+\paragraph{Symmetry and Alternation on Multi-linear Maps}
+A multi-linear map is symmetric if swapping any of its arguments does not
+change its value. However, if swapping arguments changes the sign of the
+map, then it is alternating.
 
