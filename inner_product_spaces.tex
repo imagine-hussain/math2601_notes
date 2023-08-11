@@ -241,3 +241,119 @@ Consequently, \[
     \draw[->, blue, thick]{(8, 5) -- node[right]{\( \vv - \vw \)}(12, 0)};
 \end{tikzpicture}
 \end{center}
+
+%
+%
+%
+\subsection{Adjoints}
+
+\paragraph{Covectors and Dual Space}
+Fix some vector \( \vx \) in a product space \( VA. \)
+Then, we know that the map \( \vc \mapsto \innerprod{v}{x} \) is a linear map
+from \( V \) to \( \mathbb{F} \).
+Maps of the form \( V \to \mathbb{F} \) are called covectorsl
+The dual space is the set of all covectors, \( V^* \) and is isomorphic to \( V \).
+
+Then, covector can be written as an inner product with some fixed vector.
+In the real case, we have a canonical isomorphism between \( V \) and \( V^* \)
+
+\paragraph{Raising and Lowering the Index}
+
+Let \( (V, \innerprod{}{}) \) be a finite dimensional vector space
+with a linear mapping \( T: V \to \mathbb{F} \).
+Then, there exists some unique \( \vt \in V \) such that for all \( \vv \in V \),
+\[
+    T(\vv) = \innerprod{\vt}{\vv}.
+\]
+
+The isomorphism \( T \mapsto \vt \) is called raising the index, denoted
+with \( \vt = T^\sharp \).
+The inverse \( \vt \mapsto T \), with \( T(\vv) = \innerprod{\vt}{\vv} \)
+is called lowering the index, denoted with \( T = \vt^\flat \).
+
+For \( \mathbb{R}^n \) with the standard dot product, \( \vv^\flat = \vv^T \).
+The dual-space then can just be thought of as corresponding row-vectors.
+The complex case is out of scope but, features conjugate linearity and has
+isomorphisms to the conjugate dual space \( \overline{V^*} \).
+
+\paragraph{Adjoint}
+In essence, the adjoint is a linear map that reverses inner products.
+For a linear map \( T: V \to W \) on finite dimensional inner product spaces,
+there exists a unique linear map \( T^* \) (the adjoint) such that \[
+    \innerprod{\vv}{T(\vv)} = \innerprod{T^*(\vv)}{\vv}.
+\]
+
+\paragraph{Standard Real and Complex Adjoint}
+For a linear map \( T \) with matrix \( A \), the adjoint is the conjugate transpose.
+In the real case, this is just the transpose.
+That is \( T^*(w) = \overline{A^t} \vw \).
+We denote this as \( A^* \).
+
+%
+%
+%
+\subsection{Special Cases of Adjoints}
+
+\paragraph{Special Linear Maps}
+The following cases are for a linear map \( T: V \to V \).
+\begin{itemize}
+    \item \textbf{Unitary}: \( T^* = T^{-1} \)
+    \item \textbf{Isometry}: Preserves lengths. That is, \( ||T(\vv)|| = ||\vv|| \).
+    \item \textbf{Hermetian/Self-Adjoint}: \( T^* = T \)
+\end{itemize}
+
+\paragraph{Properties of Unitary Maps}
+\begin{itemize}
+    \item A map is unitary if and only if \( T^* \) is also unitary.
+    \item The set of all unitary transformations forms a group under composition.
+\end{itemize}
+
+\paragraph{Equivalencies on Special Maps}
+The following are all equivalent for a linear map \( T: V \to V \) on
+and inner product space \( V \):
+\begin{enumerate}
+    \item \( T \) is an isometry (preserves length).
+    \item \( T \) is unitary.
+    \item \( T^* \) is an isometry.
+    \item \( T \) preserves inner products: \( \innerprod{T(\vv)}{T(\vw)} = \innerprod{\vv}{\vw} \).
+    \item If \( \set{\ve_1, \dots \ve_n} \) is an orthonormal basis,
+        so is \( T(\ve_1),\dots T(\ve_n) \).
+\end{enumerate}
+
+\paragraph{Polarisation Identities}
+The polarisation identities are a set of identities that relate inner products
+to norms. For the real and complex cases, we have
+\begin{align*}
+    \mathbb{R}:& \innerprod{\vx}{\vy} = \frac{1}{4}\left(
+        \norm*{\vx + \vy}^2 - \norm*{\vx - \vy}^2
+    \right) \\
+    \mathbb{C}:& \innerprod{\vx}{\vy} = \frac{1}{4}\left[
+        \norm*{\vx + \vy}^2 - \norm*{\vx - \vy}^2
+        + i \left(\norm*{\vx + i\vy} + \norm*{\vx -i\vy} \right)
+    \right]
+\end{align*} 
+
+\paragraph{Matrix Representation of Special Maps}
+For matrices, the special cases hold as follows for the complex case:
+\begin{itemize}
+    \item Unitary: \( A^* = A^{-1} \),
+    \item Hermetian: \( A^* = A \).
+\end{itemize}
+For the real case,
+\begin{itemize}
+    \item Orthogonal: \( A^T = A^{-1} \),
+    \item Symmetric: \( A^T = A \).
+\end{itemize}
+Thus, the columns of a \( p\times p \) matrix form an orthonormal basis
+for \( \mathbb{C}^p \) if and only if \( A \) is unitary.
+For the real case, orthogonality is enough.
+This also holds for rows due to the transposition.
+
+\subsection{QR Factorisations}
+
+\paragraph{QR form}
+For a \( p\times q \) matrix \( A \) of rank \( q \), we can write \[
+    A = QR
+\]
+for some \( p\times q \) matrix \( Q \) with orthonormal columns and
+and invertible upper-triangular matrix \( R \).
