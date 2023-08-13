@@ -1,0 +1,99 @@
+
+\section{Determinants}
+
+\paragraph{Formal Definition}
+For a \( n \times n \) matrix \( A \): \[
+    \det A = \sum_{\sigma \in \mathcal{S}_n}
+    \sign(\sigma) a_{1, \sigma(1)} a_{2, \sigma(2)} \cdots a_{n, \sigma(n)}
+\]
+
+\paragraph{Defining \(\mathcal{S}_n\) and Sign}
+In the above definition \(\mathcal{S}_n\) is the group of permutations of \( n \)
+items. A permuation is even or odd if the number of inversions in that
+permuation are even or odd.
+Then, \(\sign(\sigma) = 1\) if \(\sigma\) is even and \(\sign(\sigma) = -1\) if
+\(\sigma\) is odd.
+
+
+\paragraph{Composability of Permutations}
+Suppose that \( \alpha, \beta \in \mathcal{S}_n \) then, \[
+    \sign(\alpha \circ \beta) = \sign(\alpha) \sign(\beta)
+    \quad\text{and}\quad
+    \sign(\alpha^{-1}) = \sign(\alpha)
+\]
+
+\paragraph{Transposition}
+A transposition on \( \sigma \in \mathcal{S}_n \) is a permutation that swaps
+two elements. All transpositions are odd permutations and thus reverse the sign.
+
+\paragraph{Properties on the Determinant}
+For \( A \in \mathbb{p, p} \)
+\begin{enumerate}
+    \item \(\det A = \det A^T\) and \( \det A^* = \overline{\det A} \).
+    \item If \textit{any} row or column is zero, then \( \det A = 0 \).
+    \item Applying a permuation to the rows is equivalent to multiplying the
+        determinant by the sign of the permutation.
+    \item \( \det A = 0 \) if any only if \( A \) is invertible.
+    \item Adding a multiple of a row or column to different row or column
+        does not change the determinant.
+    \item As a map on the rows / columns of \( A \), the determinant is multilinear
+    and alternating. Thus, multiple any row or column by a scalar \( \lambda \) multiplies
+    the determinant by \( \lambda \). Thus, \( \det (\lambda A) = \lambda^p \det A \).
+\end{enumerate}
+
+\paragraph{Minor of a Matrix}
+For a \( p\times p \) matrix \( A \), the \((i,j)\)-minor,
+denoted \( A_{ij} \) is the resulting matrix obtained by deleting the \(i\)th row and \(j\)th column from \( A \).
+Suppoes that the \( i \)-th row or \( j \)-th column is
+all zeroes except for \( a_{ij} \), then \[
+    \det A = {(-1)}^{i + j} a_{ij} \det(A_{ij})
+.\]
+The right hand-side is called the \textit{cofactor}
+of element \( a_{ij} \).
+
+\paragraph{Cofactor and Determinant}
+Fix any \( i \). Then, the determinant is the sum of all
+cofactors \( c_{ij} \).
+ 
+\paragraph{Finding Determinants Efficiently}
+\begin{enumerate}
+    \item Add multiples of rows to each other until there
+    is a row or column with only one non-zero entry.
+    \item Use the result for a minor of a matrix to
+        calculate the determinant of a \( (p-1)\times(p-1) \)
+        matrix.
+    \item Repeat recursively till a \( 2\times 2 \) matrix.
+\end{enumerate}
+If however, a matrix can be reduced to an upper triangular form,
+that is more efficient as the determinant is the product
+of the diagonal entries.
+
+\paragraph{Elementary Matrices}
+Elementary matrices are matrices that perform one of the following actions
+\begin{enumerate}
+    \item Swap two rows: \( \det E = -1 \).
+    \item Multiplies a row by a scalar \( \lambda \): \( \det E = \lambda \).
+    \item Add a multiple of one row to another: \( \det E = 1 \).
+\end{enumerate}
+
+For any invertible \( A \), it may be seen as a
+composition of elementary matrices and the determinant,
+their product.
+
+\paragraph{Determinant and Invertibility}
+Note that \( \det(AB) = \det(A) \det(B) \).
+Applying the previous result of viewing matrices as
+compositions of elementary functions, the determinant is
+a similarity invariant.
+An inverse exists if and only if, the determinant is non-zero.
+Further, if \( A \) is invertible, then \[
+    \det (A^{-1}) = \frac{1}{\det A}
+\]
+
+\paragraph{Adjugate / Classical Adjoint / Adjunct}
+For a matrix \( A \), the ajunct is the transpose of the
+matrix of cofactors. That is, \( \mathrm{adj}(A)_{ij} = c_{ji} \).
+This is useful (though tediuos) since \[
+    A^{-1} = \frac{\textrm{adj} A}{\det A}
+.\]
+

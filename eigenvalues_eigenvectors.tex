@@ -1,0 +1,193 @@
+\section{Eigenvalues and Eigenvectors}
+
+\subsection{Eigenvalues and EigenVectors}
+
+\paragraph{Definition}
+For \( T \in L(V, V) \), if \( T(\vv) = \alpha \vv \), then
+\( \vv \) is an eigenvector of \( T \) corresponding to eigenvalue
+\( \alpha \).
+
+\paragraph{Eigenspace and Spectrum}
+For eigenvalue \( \lambda \), the eigen space is the set
+of all vectors thta correspond to that eigenvalue:
+\( E_\lambda = \set{\vv \in V : T(\vv) = \lambda \vv} \).
+The \textit{spectrum} of \( T \) is the set of all its
+eigenvalues.
+Observe that an eignespace is invariant under \( T \).
+
+\paragraph{Independence of Eigenspaces}
+For a linear \( T: V \to V \), \( E_\lambda(T) = \ker(\lambda I - T) \).
+Further, if \( \lambda_1,\dots,\lambda_k \) are distinct eigenvalues,
+then all their correponding eigenvectors \( \vv_1, \dots, \vv_k \)
+are linearly independent.
+
+Further, if \( \lambda \neq \mu \), then \( E_\lambda \cap E_\mu = \set{\zero} \).
+
+\paragraph{Diagonalisability}
+A matrix \( A \) is diagonalisable if there exists an invertible matrix
+\( P \in GL(p, \mathbb{F}) \) such that \( D = P^{-1} D P \),
+is a diagonal matrix. Alternatively, \( A = P D P^{-1} \).
+
+A matrix is diagonalisable if and only if, its eigenvectors form a basis
+for \( V \). Do note that the converse is not true. Diagonalisability
+does not imply independent eigenvectors.
+
+%
+%
+%
+\subsection{The Characteristic Polynomial}
+
+\paragraph{Definition}
+For a \( p\times p \) matrix \( A \) over \( \mathbb{F} \), the characteristic
+polynomial is \[
+    \cp_A(t) = \det(tI - A).
+\]
+The eigenvalues of \( A \) are the roots of \( \cp_A(t) \).
+In the above definition, the polynomial is monic but, it may be easier
+to calculate the roots of \( \det(A - tI) \).
+
+The characteristic polynomial is a similarity invariant.
+
+\paragraph{Eigenvalues over Bases}
+For a linear \( T: V \to V \), on a finite dimensional \( V \),
+let \( \mathcal{B} \) be a basis for \( V \).
+Let \( A \) be a matrix for \( T \) with respect to \( \mathcal{B} \).
+Then, an eigenvector \( \vv \) for \( T \) with eigenvalue \( \lambda \)
+is also an eigenvector for \( A \)
+as \( {[\vv]}_\mathcal{B} \) with eigenvalue \( \lambda \).
+
+\paragraph{Algorithm for Diagonalisation}
+Given a matrix \( A \) with \( \dim V = n \),
+\begin{enumerate}
+    \item Calcualte \( \cp_A(T) \).
+    \item Find all roots \( \alpha_i \) of the characteristic polynomial.
+    \item For each root calculate \( N_i = \dim(E_{\alpha_i}(A) ) \) using
+    \( \nullity(A - \alpha_i I) \).
+    \item If \( \sum_{\alpha} N_i = n \) then, \( A \) is diagonalisable.
+    \item \( P \) is the matrix with columns being the eigenvectors.
+    \item \( D \) is a diagonal matrix with the eigenvalues on the diagonal
+        that correspond to the eigenvectors in \( P \).
+\end{enumerate}
+
+%
+%
+%
+\subsection{Multiplicities}
+
+\paragraph{Geometric and Algebraic Multiplicities}
+For a linear map \( T \), suppose that \( \lambda \)
+is an eigenvalue of \( T \) so that \( t - \lambda \) is a factor
+of the characteristic polynomial.
+\begin{itemize}
+    \item The \underline{geometric multiplicity} is \( \dim E_\lambda(T) \)
+    \item The \underline{algebraic multiplicity} is the multiplicity of
+        \( \lambda \) as a root of the characteristic polynomial.
+\end{itemize}
+
+\paragraph{Multiplicities, Determinant, Trace and Closure}
+Observe that algebraic multiplicites will depend on the field. We prefer
+\( \mathbb{C} \) as it is algebraically closed (polynomial of degree \( p \)
+has \( p \) roots).
+The for \( A \in \mathbb{M}_{p, p}(\mathbb{C}) \) with eigenvalues
+\( \alpha_1, \dots, \alpha_n \) (counting non-distinct roots multiple times),
+\[
+    \det (A) = \prod_{i = 1}^n \alpha_i
+    \quad\text{and}\quad
+    \tr(A) = \sum_{i = 1}^n \alpha_i.
+\]
+
+\paragraph{Inequality of Geometric and Algebraic Multiplicities}
+For an eigenvalue \( \lambda \), \[
+    1 \leq \text{geometric multiplicity} \lambda \leq \text{algebraic}
+.\]
+
+\paragraph{Equivalencies on Multiplicities and Diagonalisability}
+For a linear \( T: V \to V \) on a finite dimensional \( V \),
+the following are equivalent:
+\begin{itemize}
+    \item \( T \) is diagonalisable.
+    \item The sum of geometric multiplicites is equal to \( \dim V \).
+    \item The eigenvectors of \( T \) form a basis for \( V \).
+    \item \( V = E_{\lambda_1}(T) \oplus \cdots \oplus E_{\lambda_n}(T) \).
+\end{itemize}
+
+%
+%
+%
+\subsection{Normal Operators}
+
+\paragraph{Definition}
+A linear map on an innner product space is normal if and only if
+it commutes with its adjoint. For maps and matrices respective, that is \[
+    T^* \circ T = T \circ T^*,  \quad A^* A = A A^*
+.\]
+
+Unitary, Hermetian, Orthogonal and Real-symmetric matrices are all normal.
+
+\paragraph{Properties of Normal Maps}
+For a normal map \( T \) on \( V \):
+\begin{enumerate}
+    \item The adjoint and map itself preserve the same length. That is,
+        \( \norm*{T(\vv)} = \norm*{T^*(\vv)} \)
+    \item For any scalar \( \alpha \), \( T - \alpha \) is normal.
+    \item If \( \lambda \) is an eigenvalue, its conjugate \( \bar{\lambda} \)
+        is an eigenvalue of \( T^* \).
+        \item The eigenspaces are equivalent to the adjoint:
+            \( E_\lambda(T) = E_{\bar{\lambda}}(T^*) \).
+    \item All distrinct eigenspaces are orthogonal. That is if \( \lambda \neq \mu \),
+        then \( E_\lambda(T) \perp E_\mu(T) \).
+\end{enumerate}
+
+\paragraph{Multiplicity of Normal Maps}
+For a normal map \( T \) on \( V \), the algebraic multiplicity of
+all eigenvalues is equivalent to its geometric multiplicity.
+Recall that this is equivalent to diagonalisability.
+
+\paragraph{The Spectral Theorem for Normal Maps}
+For a finite dimensional inner product space over \( \mathcal{C} \),
+with a normal \( T \in L(V, V) \), there exists an orthonormal basis
+\( \mathcal{B} \) for \( V \) consisting of eigenvectors of \( T \).
+
+Therefore, if \( A \in \mathbb{M}_{p, p}(\mathcal{C}) \) is normal,
+\underline{there exists a unitary \( P \)} such that \[
+    P^{-1} A P = P^* A P = D.
+\]
+
+Conversely, if \( {[T]}_{\mathcal{B}}^{\mathcal{B}} = A  PDP^{-1} \)
+where \( P \) is unitary (thus \( \mathcal{B} \) is orthogonormal),
+then both \( A \) and \( T \) are normal.
+
+\paragraph{}
+Suppose that \( A \) is normal with eigenvalues \( \lambda_i \).
+Then there exist matrices \( P_i \) such that
+
+\begin{align*}
+    A = \sum_{i} \lambda_i P_i, &\quad\quad\quad P^2_i = P_i = P_i^*,   \\
+    P_i P_j = 0 \quad i \neq j, &\quad\quad\quad \sum_{i} P_i = I.
+\end{align*}
+
+Each \( P_i \) is just the projection onto the orthgonal eigenspace \( E_{\lambda_i} \).
+
+\paragraph{Self-Adjoint}
+Recall that to be self-adjoint is just to be Hermetian or, in the real
+case, symmetric.
+\begin{enumerate}
+    \item If \( T \) is self-adjoint then all its eigenvalues are real.
+    \item If \( \mathbb{F} = \mathbb{C} \) and \( T \) is self-adjoint (Hermetian),
+        then there is a unitary (orthonormal) basis for \( V \) 
+        consisting of its eigenvectors.
+    \item If \( \mathbb{F} = \mathbb{R} \) and \( T \) is self-adjoint (symmetric),
+        then there is a real orthonormal basis for \( V \) consisting of its
+        eigenvectors.
+\end{enumerate}
+
+%
+%
+%
+\subsection{Conics and Quadric Surfaces}
+TODO
+
+%
+%
+%
+\subsection{Unitary and Orthogonal Maps and Matrices}

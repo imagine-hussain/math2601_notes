@@ -355,5 +355,87 @@ This also holds for rows due to the transposition.
 For a \( p\times q \) matrix \( A \) of rank \( q \), we can write \[
     A = QR
 \]
-for some \( p\times q \) matrix \( Q \) with orthonormal columns and
+for some \( p\times q \) matrix \( Q \) with orthonormal columns
 and invertible upper-triangular matrix \( R \).
+
+\paragraph{Calculating QR Form}
+Suppose that \( A \) has columns \( \vv_i \).
+\begin{enumerate}
+    \item Use the Gram-Schmidt process to find an orthonormal basis
+        \( W = \set{\vw_1, \dots, \vw_n }\) for the column-space of \( A \).
+    \item Normalise the vectors in \( W \) to get \( Q = \set{\vq_1, \dots, \vq_p} \).
+    \item Construct \( A \) as follows: \[
+        A = \begin{pmatrix}
+            \vq_1 & \vdots & \cdots & \vdots & \vq_p
+        \end{pmatrix}
+        \begin{pmatrix}
+            \norm*{\vw_1}   & \innerprod{\vq_1}{\vv_2}  & \cdots & \innerprod{\vq_1}{\vv_q} \\
+                            & \norm*{\vw_2}             & \cdots & \innerprod{\vq_2}{\vv_q} \\
+                            &                           & \ddots & \vdots                   \\
+                            &                           &        & \norm*{\vw_q}            \\
+        \end{pmatrix}
+        = QR
+    .\]
+\end{enumerate}
+
+Alternatively, once you have \( Q \), since it is orthonormal, \( Q^* = Q^{-1} \),
+then \[
+    R = Q^* A.
+\]
+
+\paragraph{Non-Square Case}
+Suppose that \( A \in \mathbb{M}_{p, q} \) and has rank \( q \).
+Then we can write a similar factorisation \( A = \widetilde{Q} \widetilde{R} \),
+where:
+\begin{enumerate}
+    \item \( \widetilde{Q} \) is still a \( p\times p \) orthogonal (unitary) matrix
+    \item \( \widetilde{R} \) is no longer square and upper triangular.
+        Instead, it is a \( p\times q \) matrix with rank \( q \) in echelon form.
+        We follow the same procedure but, pad the matrix with zeros until it
+        is of the right dimensions.
+\end{enumerate}
+
+%
+%
+%
+\subsection{Method of Least Squares}
+
+\paragraph{Motivation}
+Suppose there is some linear system \( A \vx = \vb \) that we want
+to fit some data to.
+So solve this with \( p \) equations and \( q \) unknowns, we need to minimise
+\( \norm*{A\vx - \vb} \) over \( \mathbb{F}^p \).
+
+\paragraph{Normal Equations}
+A least squares solution to a system of linear equations \( A\vx = \vb \)
+is equivalent to the solution to the following: \[
+    A^* A \vx = A^* \vb
+.\]
+
+A solution will always exist, given that the columns of \( A \) are linearly
+independent. Indepenent columns also implies \( A^* A \) is invertible and so \[
+    \vx = {(A^* A)}^{-1} A^* b
+\]
+
+\paragraph{Line of Best Fit \( \mathbb{R}^2 \)}
+Suppose there exist a set of points \( {\set{(x_i, y_i)}_{i =1}^n} \).
+We want to find a least-squares solution to
+\( {\set{(y_i = a + bx_i)}_{i =1}^n} \ \).
+
+In matrix form \( A \vx = \vb \) with \( \vx = \begin{pmatrix}
+    a & b
+\end{pmatrix}^T \) and \( b \in \mathbb{R}^n \).
+
+Hence, we form \[
+    A = \begin{pmatrix}
+        1 & x_1 \\
+        1 & x_2 \\
+        \vdots & \vdots \\
+        1 & x_n
+    \end{pmatrix}
+    \implies
+    A^* A = \begin{pmatrix}
+        n        & \sum x_i \\
+        \sum x_i & \sum x_i^2
+    \end{pmatrix}
+\]
