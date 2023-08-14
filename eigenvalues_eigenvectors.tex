@@ -191,3 +191,156 @@ TODO
 %
 %
 \subsection{Unitary and Orthogonal Maps and Matrices}
+
+\paragraph{Lengths of Eigenvalues of Unitary Maps}
+Suppose that \( T \) is unitary. Then, all its eigenvalues lie on the
+unit circle in \( \mathcal{C} \).
+That is, for real \( \alpha_k \), the eigenvalues are \( e^{i a_k} \).
+Also, \( V \) has a unitary base of eigenvectors of \( T \).
+
+For \( \mathbb{F} = \mathbb{R} \), this implies that all eigenvalues
+are \( \pm 1 \).
+
+\paragraph{Rotation Matrix}
+For a unitary \( T \), let \( \vv = \vx + i\vy \) for real \( \vx, \vy \).
+Then by linearity (and omitting some steps), \[
+    T(\vx + \vy) = (\cos \alpha \vx - \sin \alpha \vy) + i(\sin \alpha \vx + \cos \alpha \vy)
+.\]
+
+Then, assuming \( \set{\vx, \vy} \) is an orthonormal basis of the invariant
+they span, we can restrict \( T \) to this 2D space and by using basis
+\( \set{\vx, - \vy} \), we can see that \( T \) is a rotation by \( \alpha \)
+with matrix \[
+    R(\alpha) =
+    \begin{pmatrix}
+        \cos \alpha & - \sin \alpha \\
+        \sin \alpha & \cos \alpha
+    \end{pmatrix}
+.\]
+
+\paragraph{Characteristic Polynomial of Isometry}
+Suppose that \( T \) is an isometry on a real inner product space
+\( V \),
+Then \[
+    \cp_T(t)
+    =
+    \underbrace{{(t - 1)}^p {(t + 1)}^n}_{\text{real factors of 1, -1}}
+    \underbrace{\prod_{j = 1}^{k} (t - e^{i \alpha_j}) (t - e^{-i\alpha_j})}_{\text{complex factors as conjugate pairs}}
+\]
+with \( p + n + 2k = \dim V \) and \( \alpha_j \in (0, \pi) \).
+
+\subsubsection{Orthogonal Matrices in \(\mathbb{R}^3\)}
+
+\paragraph{Variants of Orthogonal Matrices}
+Suppose that \( A \) is a \( 3 \times 3 \) orthogonal matrix.
+Then \( A A^T  = I \) implies that \( \det A \pm 1 \).
+Thus, we split the group of orthogonal matrices \( O(3) \) into two groups:
+\( SO(3) \) (subgroup with determinant 1) and, everything else.
+
+Elements of \( SO(3) \) are similr to either the identity, \( (1) \oplus (-1) \oplus (-1) \)
+or the rotation matrix: \[
+    R(\theta) = \begin{pmatrix}
+        1   &               &               \\
+            & \cos \theta   & - \sin \theta \\
+            & \sin \theta   & \cos \theta
+    \end{pmatrix}, \theta \in (0, \pi)
+.\]
+Infact, being similar to the rotation is sufficient, if we let
+\( \theta \in [0, \pi] \).
+
+\paragraph{Finding Axis of Rotation}
+Since \( \tr(A) = 1 + 2\cos \theta \), we can use this to find the angle
+of rotation.
+If \( 1 \) is the determiant then, \( E_1 (A) \) gives the axis of rotation.
+If however \( -1 \) is the determinant then, \( E_{-1}(A) \) gives
+us a vector normal to the plane of reflection and, the axis for the
+subsequent rotation.
+
+%
+%
+%
+\subsection{Singular Value Decomposition}
+
+\paragraph{Definition}
+Let \( A \in \mathbb{M}_{p, q} (\mathbb{C}) \).
+A \textit{singular value decomposition} of \( A \) is a factorisation
+of the form \[
+    A = U \Sigma V^*
+\] where \( U, V \) are square and unitary and, \( \Sigma \)
+is a \( p\times q \) matrix with zero off-diagonal terms and diagonal
+terms called \textit{singular values} that satisfy \[
+    \sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_q > 0
+.\]
+
+The columns of \( U, V \) are called the left and right singular vectors
+respectively.
+
+This form always exists and is unique.
+
+\paragraph{Preservation of Rank and Kernel under Composition with Adjoint}
+Let \( A \) be a real or complex \( p\times q \) matrix.
+Then the rank and kernel of \( A^* A \) is equal to the rank and kernel
+of \( A \).
+
+\paragraph{Constructing the SVD}
+
+Let \( A \) be a \( p \times q \) matrix.  Then, \( A^* A  \) is Hermetian.
+
+\begin{enumerate}
+    \item Calculate \( W = A A^* \).
+    \item Calculate the eigenvalues and vectors \( \lambda_i, \vv_i \)
+        of \( A A^* \), ensuring that all \( \vv_i \) are normalised.
+        Order the eigenvalues so that \[
+            \lambda_1 \geq \lambda_2 \geq\cdots \geq \lambda_n \geq 0
+        .\]
+    \item \( V \) is the matrix with columns \( \vv_i \).
+    \item Let \( \sigma_i = \sqrt(\lambda_i) \). Construct \( \Sigma \)
+        with \( \sigma_i \) as the diagonal entries and then pad
+        with zeros to make it a \( p \times q \) matrix.
+    \item For \( i \in [1, k] \), define the columns of \( U \) as \[
+        \vu_i = \frac{1}{\sigma_i} A \vv_i
+    .\]
+    If there is insufficient singular values, extend \( \vu_i \)
+    to be an orthonormal basis for \( \mathbb{C}^p \).
+    \item Then by this construction, \( U \Sigma = A V \) and thus
+        \( A = U \Sigma V^* \) as required.
+\end{enumerate}
+
+\paragraph{Reduced Singular Value Decomposition}
+Suppose that \( A \in \mathbb{M}_{p, q} (\mathbb{C}) \)
+has a rank \( k \). Then we can choose to delete the last
+\( q - k \) columns of \( V \), the last \( p - k \) columns
+from \( U \) and avoid padding the zero columns of \( \Sigma \).
+Then we get a reduced form \[
+    A = \hat{U} \hat{\Sigma} \hat{V}^*
+\]
+where \( \hat{U} \) and \( \hat{V} \) are orthonormal
+and \( \hat{\Sigma} \) is \( k\times k \), invertible
+and diagonal.
+
+\paragraph{Properties on the SVD}
+\begin{enumerate}
+    \item The lat \( q - k \) right singular vectors
+    are an orthonormal basis for \( \ker A \).
+    The first \( k \) left singular vectors are an orthonormal
+    basis for \( \img A \).
+    \item The sum of the squares of the singular values is
+    equivalent to the trace of \( A^* A \).
+\end{enumerate}
+
+\paragraph{Pseudo-Inverse}
+For any \( A \) with a reduced SVD, we can define a pseudo-inverse
+as \[
+    A^+ = \hat{V} \hat{\Sigma}^{-1} \hat{U}^*
+.\]
+
+\paragraph{Least Squares Solution with Pseudo}
+The least-squares solution to \( A \vx = \vb \)
+is given by \[
+    \vx = A^+ \vb
+.\]
+
+\paragraph{Schur's Lemma}
+Every matrix is unitarily similar to an upper triangular matrix.
+We extend this for normal matrices, which are similar to
+a diagonal matrix.
