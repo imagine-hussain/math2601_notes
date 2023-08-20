@@ -1,0 +1,155 @@
+
+\section{Functions of Matrices and ODEs}
+
+\subsection{Powers and the Jordan Form}
+
+\paragraph{Jordan form and Powers}
+Suppose that \( A = P J P^{-1} \). Then, \( A^n = P B^n P^{-1} \).
+That is, we can calculate the jordan form of a matrix and then
+to find its powers, simply take the power of the jordan block.
+
+\paragraph{Binomial Theorem For Commuting Matrices}
+Supoose that \( A, B \) are \( p\times p \) matrices
+that commute on multiplication. Then for \( n \in \mathbb{N} \),
+\[
+    {(A + B)}^n = A^n
+    + {n \choose 1} A^{n - 1} B
+    + {n \choose 2 } A^{n - 2}B^2
+    + \cdots
+    + B^{n}
+.\]
+
+\paragraph{Power of Jordan Block}
+Suppose that we have a jordan block \( J_n(\lambda) \).
+
+Then the top row of the jordan block is \[
+\begin{pmatrix}
+    \lambda^n & {n \choose 1} \lambda^{n - 1} & \cdots & {n \choose n - 1} \lambda & {n \choose n}
+\end{pmatrix}
+\]
+Consecutive rows can be gotten by just shifting the top row to the right.
+
+\subsection{Power Series of Matrices}
+
+\paragraph{Entry-wise convergence}
+Suppose that \( A^{(k)} = \begin{pmatrix} a_{ij}^{(k)} \end{pmatrix} \)
+is a sequence of matrices. We say \( A^{(k)} \) converges
+entrywise to \( A \) if and only if \( a_{ij}^{(k)} \to a_{ij} \)
+as \( k \to \infty \).
+
+\paragraph{Norms on Matrices}
+\begin{itemize}
+    \item \textbf{\( \infty \)-norm:} \[
+        \norm*{A}_{\infty} = \max\set{\abs{a_{ij}}}
+    \]
+    \item \textbf{Operator Norm:} For complex \( \vv \) with length \( 1 \), \[
+        \norm*{A}_{\text{op}} = \max\set{\abs{\norm*{A \vv}}}
+    \]
+    \item \textbf{Frobenius Norm:} \[
+        \norm*{A}_{F} = \sqrt{\innerprod{A}{A}} = \sqrt{\trace (A^* A)} = \sqrt{\sum_{i, j} |a_{ij}|}
+    \]
+\end{itemize}
+
+Norm convergence just means that the norm tends to \( 0 \).
+A sequence converges to \( A \) entry-wise if and only if it converges
+in the \( \infty \)-norm, operator norm, and Frobenius norm.
+
+\paragraph{Comparing the Norms}
+For all square and complex \( A \), \[
+    \norm*{A}_{F} \geq
+    \norm*{A}_{\infty} \geq
+    \frac{1}{p} \norm*{A}_{F}
+\]
+
+\paragraph{Product of Infinity Norms}
+\[
+    \norm*{AB}_{\infty} \leq p \norm*{A}_{\infty} \norm*{B}_{\infty}
+.\]
+
+\paragraph{Power Series Convergence}
+TODo
+
+\subsection{The Matrix Exponential}
+
+\paragraph{Matrix Exponential}
+Suppose that \( A \in \mathbb{M}_n (\mathbb{C}) \).
+Then \[
+    e^A = \exp(A) \equiv \sum_{k = 0}^{\infty} \frac{1}{k!} A^k
+.\]
+
+Recall that we can reduce calculating powers to calculating
+powers of jordan blocks. We do the same for the exponential.
+
+
+\paragraph{Derivative and Inverse of Exponential}
+As with the scalar case, \[
+    \frac{d}{dt}\exp(tA) = A \exp(tA) = \exp(tA) A
+.\]
+
+Also, the inverse of the exponential is \( \exp{-t A} \).
+
+\paragraph{Exponential as Solution to ODE}
+Suppose that \( \vy' = Ay \) and \( \vy(0) = \zero \). Then
+\( \vy \equiv 0 \).
+
+The set of solutions to \( \vy' \) is a vector space with dimension
+\( p \) and the columns of \( e^{tA} \) form a basis for this space.
+
+Then, the inital value problem has the solution \[
+    \vy' = A\vy, \vy(0) = \vc \implies y =   e^{tA} \vc
+.\]
+
+\paragraph{Sum and Product of Exponentials}
+Supoose that \( A, B \) are \( p\times p \) matrices that commute.
+Then \[
+    e^{A + B} = e^A e^B = e^B e^A
+\]
+
+
+\subsection{The Column Method}
+
+\paragraph{Exponential on Eigenvectors}
+Suppose that \( A \vc = \lambda \vc \).
+Then, \[
+    e^{tA} \vc = e^{t \lambda} \vc.
+\]
+
+Since any \( \vc \) can be written as a linear combinator of eigenvectors \( \vv_i \), \[
+    e^{tA} \vc = \sum e^{\lambda_i t} c_i \vv_i
+\]
+
+\paragraph{Column Method}
+Suppose \( A \in \mathbb{M}_n(\mathbb(C)) \).
+Then for \( e^{tA} \), calculate the generalised eigenvectors
+\( \vv_i \) with eigenvalues \( \lambda_i \) to be a basis for
+\( A \). Then \[
+    e^{tA} = \begin{pmatrix}
+        e^{\lambda_1 t} \vv_1
+        & \vdots
+        & e^{\lambda_2 t} \vv_2
+        & \vdots
+        & \cdots
+        & \vdots
+        & e^{\lambda_n t} \vv_n
+    \end{pmatrix}
+\]
+
+\subsection{Systems of (In)-Homogeneous Linear ODEs}
+
+\paragraph{Fundamental Matrix}
+The fundamental matrix \( \Phi(t) \) is a square matrix with
+columns independent as functions of \( t \), that are the
+solutions to \( \vy' = A \vy \).
+
+\paragraph{Calculating The Fundamental Matrix}
+If \( \vv_1, \dots, \vv_n \) is a basis for \( \mathbb{C}^n \)
+consisting of generalised eigenvectors of \( A \), then
+\( \exp(t A) \vv_i \) form the columsn of \( \Phi(t) \).
+
+\paragraph{Inhomogenous Linear ODE}
+For \( A \in \mathbb{M}_{p, p}(\mathbb{C}) \), consider \[
+    \vy' = A \vy + \vb(t)
+.\] This is an inhomogenous system. In a homogeneous system,
+\( \vb(t) = \zero \).
+
+
